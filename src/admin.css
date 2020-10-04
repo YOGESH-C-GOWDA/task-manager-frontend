@@ -1,0 +1,12 @@
+.admin{
+    width: 250px;
+    margin: 20px;
+    box-shadow: 1px blueviolet;
+}
+
+.admin__buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
