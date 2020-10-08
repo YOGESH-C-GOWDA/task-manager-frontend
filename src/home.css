@@ -1,0 +1,15 @@
+.home__admin__scheduler{
+    display: flex;
+    /* flex-direction: row; */
+}
+.home__scheduler{
+    flex:0.70;
+    margin: 20px;
+}
+.home__admin{
+    margin-left: 10px;
+    flex:0.2;
+}
+.home__admin > h1{
+    font:300 25px/1.4 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}

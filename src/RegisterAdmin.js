@@ -59,7 +59,17 @@ function Register() {
             console.log("Registration --- ", response.data);
             // setUserInfo(response.data);
             // history.push("/Home");
-            alert("User added Successfully")
+            setName("");
+            setEmail("");
+            setPassword("");
+
+            alert("User added Successfully");
+
+            // document.getElementsByClassName("aaaaa").setTextValue() = "";
+            document.getElementById("regAdmin__name__input").value = "";
+            document.getElementById("email__address__register").value = "";
+            document.getElementById("password_register").value = "";
+
 
         } catch (err) {
             alert("Error Please added valid Credentials")
@@ -73,16 +83,17 @@ function Register() {
         <div className="tm__register">
             {/* add centre in className in article */}
             {/* <article className="br3 ba dark-gray b--black-10 mv0 w-100 w-50-m w-25-l mw6 shadow-5 centre "> */}
-            <main className="pa4 black-80">
+            <main className="pa1 black-80">
                 <form className="measure center">
                     <fieldset id="register" className="ba b--transparent ph0 mh0">
-                        <legend className="f4 fw6 ph0 mh0">Add New User</legend>
+                        <legend className="f4 fw6 ph0 mh0 center">Add New User</legend>
                         <div className="mt3">
                             <label className="db fw6 lh-copy f6" >Name</label>
                             <input
                                 onChange={setEnteringName}
                                 className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
                                 type="text"
+                                id="regAdmin__name__input"
                             />
                         </div>
                         {/* <div className="mt3">
@@ -100,7 +111,7 @@ function Register() {
                                 className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
                                 type="email"
                                 name="email-address"
-                                id="email-address_register" />
+                                id="email__address__register" />
                         </div>
                         <div className="mv3">
                             <label className="db fw6 lh-copy f6" >Password</label>
@@ -116,7 +127,7 @@ function Register() {
                     <div className="">
                         <input
                             onClick={onClickingSubmit}
-                            className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
+                            className=" b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 "
                             type="submit"
                             value="Add" />
                     </div>

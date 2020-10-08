@@ -3,13 +3,18 @@ import "./admin.css";
 import RegisterAdmin from "./RegisterAdmin.js"
 import "tachyons";
 import UserInfo from "./UserInfo.js";
+// import AddTask from "./AddTask.js";
 import axios from "./axios.js";
 
-function Admin() {
+// Trial
+import Demo_2 from "./Demo_2.js";
+
+function Admin({ name }) {
 
     // State
     const [users, setUsers] = useState([]);
     const [newUser, setNewUser] = useState(false);
+    // const [newTask, setNewTask] = useState(false);
 
 
 
@@ -18,7 +23,9 @@ function Admin() {
     const getUsers = async () => {
 
         // remove new user registration tab
+
         setNewUser(false);
+        // setNewTask(true);
 
         try {
             const response = await axios({
@@ -42,7 +49,9 @@ function Admin() {
     const addUser = async () => {
 
         setUsers([]);
+        // setNewTask(false)
         newUser ? setNewUser(false) : setNewUser(true);
+
 
         try {
             const response = await axios({
@@ -63,32 +72,49 @@ function Admin() {
     //Finale components that gets rendered
     return (
         <div className="admin">
-            <div className="admin__buttons">
-                <div className="lh-copy mt3">
-                    <button onClick={getUsers} className="center b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib">
-                        Users
+            {/* <h1>HELLO : {name.toUpperCase()}</h1> */}
+            <div className="admin__admin__controls">
+                {/* <h1>HELLO : {name.toUpperCase()}</h1> */}
+                <div className="admin__buttons">
+                    <div className="lh-copy mt3">
+                        <button onClick={getUsers} className="center b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6">
+                            Users
                     </button>
-                </div>
-                <div className="lh-copy mt3">
-                    <button onClick={addUser} className="center b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib">
-                        Add User
+                    </div>
+                    <div className="lh-copy mt3">
+                        <button onClick={addUser} className="center b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6">
+                            Add User
                     </button>
+                    </div>
                 </div>
-            </div>
-            <div className="admin__users">
-                {users.map((user, i) => {
-                    const { _id, name, role, email, createdOn } = user;
-                    return (<UserInfo key={_id} id={_id} name={name} role={role} email={email} createdOn={createdOn} />)
-                })
-                }
-            </div>
-            <div className="admin__newUser">
-                {
-                    newUser ? <RegisterAdmin /> : null
-                }
+                <div className="admin__scroll">
 
+                    {/*  Display users from database */}
+                    <div className="admin__users">
+                        {users.map((user, i) => {
+                            const { _id, name, role, email, createdOn } = user;
+                            return (<UserInfo key={_id} id={_id} name={name} role={role} email={email} createdOn={createdOn} />)
+                        })
+                        }
+                    </div>
+
+                    {/* Assign Task to the user */}
+                    {/* <div className="admin__add__task">
+                    { newTask ? <AddTask /> : null}
+                     </div> */}
+
+                    {/* Register New User  */}
+                    <div className="admin__newUser">
+                        {newUser ? <RegisterAdmin /> : null}
+                    </div>
+                </div>
             </div>
+            {/* <div className="admin__scheduler">
+                <Demo_2 />
+            </div> */}
+
         </div >
+
     )
 }
 

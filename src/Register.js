@@ -121,7 +121,7 @@ function Register({ setUserInfo }) {
                         <div className="">
                             <input
                                 onClick={onClickingSubmit}
-                                className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
+                                className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 "
                                 type="submit"
                                 value="Register" />
                         </div>
@@ -129,7 +129,7 @@ function Register({ setUserInfo }) {
                     <Link to="/" >
                         <div className="lh-copy mt3">
                             <button
-                                className="center b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib">
+                                className="center b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 ">
                                 Login
                         </button>
 

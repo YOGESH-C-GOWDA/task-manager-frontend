@@ -1,0 +1,38 @@
+.header{
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  /* background-image: linear-gradient(to bottom ,#f75990, #36d1dc);
+  background-image: linear-gradient(to bottom ,#f75990, #36d1dc); */
+}
+
+.header__title{
+ /* color: white; */
+ color: rgb(255, 47, 134);
+ /* font-family: 'Times New Roman', Times, serif;
+ font-weight: bolder; */
+ font:300 35px/1.4 'Helvetica Neue', Helvetica, Arial, sans-serif;
+ /* margin-top: 28px; */
+ margin-bottom: 2px;
+ padding-bottom: 0;
+}
+
+.header__name > h1{
+  /* color: rgb(219, 31, 109); */
+  color: rgb(255, 255, 255);
+  margin-top: 0;
+  margin-bottom: 15px;
+  font:300 25px/1.4 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.header__name > h1 > span{
+  /* color: rgb(219, 31, 109); */
+  /* color: rgb(223, 200, 0); */
+  color: rgb(255, 47, 134);
+  margin-top: 0;
+  margin-bottom: 15px;
+  font:300 25px/1.4 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}

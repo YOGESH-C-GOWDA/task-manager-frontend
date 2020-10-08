@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Login from "./Login.js";
+import Header from "./Header.js";
 import Register from "./Register.js";
 import Home from "./Home.js"
 
@@ -33,6 +34,8 @@ function App() {
             <Register setUserInfo={setUserInfo} />
           </Route>
           <Route path="/Home">
+            {/* {user ? <Home user={user} /> : <Login />} */}
+            <Header name={user.name} />
             <Home user={user} />
           </Route>
           <Route path="/">

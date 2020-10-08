@@ -91,7 +91,7 @@ function Login({ setUserInfo }) {
                         <div className="">
                             <input
                                 onClick={onClickingSubmit}
-                                className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
+                                className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 "
                                 type="submit"
                                 value="Sign in" />
                         </div>
@@ -99,10 +99,9 @@ function Login({ setUserInfo }) {
                     <Link to="/Register" >
                         <div className="lh-copy mt3">
                             <button
-                                className="center b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib">
+                                className="center b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 ">
                                 Register
-                        </button>
-
+                            </button>
                         </div>
                     </Link>
                 </main>
