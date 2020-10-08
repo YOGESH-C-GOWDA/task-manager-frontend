@@ -51,7 +51,7 @@ export default function SimpleModal({ id, open1, handleClose }) {
 
     const body = (
         <div style={modalStyle} className={classes.paper} >
-            <AddTask id={id} />
+            <AddTask id={id} onClose={handleClose} />
             <SimpleModal />
         </div>
     );

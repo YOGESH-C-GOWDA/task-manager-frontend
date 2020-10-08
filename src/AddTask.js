@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import "tachyons";
 import axios from "./axios.js";
 
-function AddTask({ id }) {
+function AddTask({ id, onClose }) {
 
     console.log("id Of the user", id);
 
@@ -108,6 +108,8 @@ function AddTask({ id }) {
             // document.getElementById("password_register").value = "";
 
             document.getElementsByClassName("add__task__clear__data").value = "";
+
+            onClose();
 
 
         } catch (err) {

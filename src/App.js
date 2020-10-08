@@ -38,7 +38,7 @@ function App() {
             <Header name={user.name} />
             <Home user={user} />
           </Route>
-          <Route path="/">
+          <Route exact path="/">
             <Login setUserInfo={setUserInfo} />
           </Route>
         </Switch>
