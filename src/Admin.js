@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import "./admin.css";
 import RegisterAdmin from "./RegisterAdmin.js"
 import "tachyons";
@@ -7,7 +7,7 @@ import UserInfo from "./UserInfo.js";
 import axios from "./axios.js";
 
 // Trial
-import Demo_2 from "./Demo_2.js";
+// import Demo_2 from "./Demo_2.js";
 
 function Admin({ name }) {
 
@@ -15,6 +15,30 @@ function Admin({ name }) {
     const [users, setUsers] = useState([]);
     const [newUser, setNewUser] = useState(false);
     // const [newTask, setNewTask] = useState(false);
+
+    useEffect(() => {
+        const getUsersfromDateBase = async () => {
+            try {
+                const response = await axios({
+                    method: 'get',
+                    url: '/api/v1/users',
+                    headers: { 'Content-Type': 'application/json;charset=utf-8' },
+                })
+                setUsers(response.data);
+                console.log(response.data);
+            } catch (err) {
+                console.log("\n Error while signing of Login Section", err.message);
+                return 0;
+            }
+        }
+
+        getUsersfromDateBase();
+
+    }, [newUser]);
+
+    useEffect(() => {
+        console.log("Use effect 2 test")
+    }, [newUser])
 
 
 
@@ -27,45 +51,29 @@ function Admin({ name }) {
         setNewUser(false);
         // setNewTask(true);
 
-        try {
-            const response = await axios({
-                method: 'get',
-                url: '/api/v1/users',
-                headers: { 'Content-Type': 'application/json;charset=utf-8' },
-            })
+        // try {
+        //     const response = await axios({
+        //         method: 'get',
+        //         url: '/api/v1/users',
+        //         headers: { 'Content-Type': 'application/json;charset=utf-8' },
+        //     })
 
-            setUsers(response.data);
+        //     setUsers(response.data);
 
-            console.log(response.data);
+        //     console.log(response.data);
 
-        } catch (err) {
-            console.log("\n Error while signing of Login Section", err.message);
-            return 0;
-        }
+        // } catch (err) {
+        //     console.log("\n Error while signing of Login Section", err.message);
+        //     return 0;
+        // }
 
     }
 
 
-    const addUser = async () => {
+    const addUser = () => {
 
-        setUsers([]);
-        // setNewTask(false)
-        newUser ? setNewUser(false) : setNewUser(true);
-
-
-        try {
-            const response = await axios({
-                method: 'get',
-                url: '/api/v1/users',
-                headers: { 'Content-Type': 'application/json;charset=utf-8' },
-            })
-
-            console.log(response.data);
-
-        } catch (err) {
-            console.log("\n Error while signing of Login Section", err.message);
-            return 0;
-        }
+        // newUser ? setNewUser(false) : setNewUser(true);
+        setNewUser(true);
 
     }
 
@@ -91,7 +99,7 @@ function Admin({ name }) {
 
                     {/*  Display users from database */}
                     <div className="admin__users">
-                        {users.map((user, i) => {
+                        {!newUser && users.map((user, i) => {
                             const { _id, name, role, email, createdOn } = user;
                             return (<UserInfo key={_id} id={_id} name={name} role={role} email={email} createdOn={createdOn} />)
                         })
