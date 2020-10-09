@@ -11,7 +11,14 @@ import Demo_2 from "./Demo_2.js";
 
 
 function Home({ user }) {
-    const { id, name, role, email } = user
+    // const { id, name, role, email } = user;
+
+    // Can Changle later to add the these as props from App to Home 
+    // For Temp testing purpose;
+
+    const name = JSON.parse(localStorage.getItem("taskManagerUser"))[0]?.toUpperCase();
+    const role = JSON.parse(localStorage.getItem("taskManagerUser"))[1];
+
     return (
 
         <div className="home">

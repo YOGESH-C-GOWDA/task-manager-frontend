@@ -4,13 +4,19 @@ import { Link, useHistory } from "react-router-dom";
 
 function Header({ name }) {
 
-    const history = useHistory();
+   const history = useHistory();
 
-const onClickingSubmit=()=>{
+   const nameLocal = JSON.parse(localStorage.getItem("taskManagerUser"))[0]?.toUpperCase();
+
+  const onClickingSubmit=()=>{
+
+    // Delete the local storge information;
+
+    localStorage.setItem("taskManagerUser", JSON.stringify([]))
 
     history.push("/")
 
-}
+   }
 
     return (
         <div className="header_1">
@@ -20,7 +26,8 @@ const onClickingSubmit=()=>{
                     
                 </div>
                 <div className="header__name">
-                    <h1 >HELLO :<span> {name?.toUpperCase()}</span></h1>
+                    {/* <h1 >HELLO :<span> {name?.toUpperCase()}</span></h1> */}
+                    <h1 >HELLO :<span> {nameLocal}</span></h1>
                 </div>
             </div>
             <div className="header__signOut">
